@@ -18,6 +18,15 @@
             }
         }
 
+        function copyJSONLink() {
+            const jsonLink = window.location.origin + '/api/channels.json'; // Adjust path as needed
+            navigator.clipboard.writeText(jsonLink).then(() => {
+                alert('JSON link copied to clipboard: ' + jsonLink);
+            }).catch(err => {
+                alert('Failed to copy JSON link: ' + err);
+            });
+        }
+
         document.addEventListener('DOMContentLoaded', fetchAndDisplayJSON);
     </script>
     <style>
@@ -51,12 +60,29 @@
             text-align: center;
             padding: 20px;
         }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>JSON Code Viewer</h1>
         <pre id="jsonViewer">Loading JSON...</pre>
+        <button onclick="copyJSONLink()">Copy JSON Link</button>
     </div>
 </body>
 </html>
