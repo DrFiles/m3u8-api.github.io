@@ -7,7 +7,7 @@
     <script>
         async function fetchAndDisplayJSON() {
             try {
-                const response = await fetch('../api/channels.json'); // Adjust path as needed
+                const response = await fetch('m3u8-api.github.io/api/channels.json'); // Adjust path as needed
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
